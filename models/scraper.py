@@ -43,13 +43,14 @@ class ScraperModel:
         response = requests.get(url)
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
+        print(soup)
         pre = soup.find('div', {'class': 'list-title'})
         print("MIRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         print(pre)
-        pre = pre.find('span').text
-        numbers = [int(s) for s in pre.split() if s.isdigit()]
+        pre_nuevo = pre.find('span').text
+        numbers = [int(s) for s in pre_nuevo.split() if s.isdigit()]
         number_results = numbers[0]
-        maxpages = re.findall(r"\b\d+-\d+\b", pre)
+        maxpages = re.findall(r"\b\d+-\d+\b", pre_nuevo)
         maxpages = maxpages[0].replace('1-','')
         return maxpages, number_results
 
