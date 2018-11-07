@@ -44,6 +44,8 @@ class ScraperModel:
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
         pre = soup.find('div', {'class': 'list-title'})
+        print("MIRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        print(pre)
         pre = pre.find('span').text
         numbers = [int(s) for s in pre.split() if s.isdigit()]
         number_results = numbers[0]
