@@ -5,6 +5,7 @@ import numpy as np
 import tqdm
 import sys
 from urllib.parse import urlparse
+from urllib.request import urlopen
 import sys
 import time
 import re
@@ -40,8 +41,9 @@ class ScraperModel:
 
     def searchstats(self):
         url = self.root+r'/'+self.searchtermprocessor()+r'/'+str(1)
-        response = requests.get(url)
-        html = response.text
+        #response = requests.get(url)
+        html = urlopen(url)
+        #html = response.text
         soup = BeautifulSoup(html, 'html.parser')
         print(soup)
         pre = soup.find('div', {'class': 'list-title'})
