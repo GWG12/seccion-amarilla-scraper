@@ -117,7 +117,7 @@ class ScraperModel:
 
     def compiling(self):
         maxpages, number_results = self.searchstats()
-        vendors_blocks, bottom_bar = self.filterdata(maxpages)
+        vendors_blocks, bottom_bar = self.filterdata(1)
         self.getinfo(vendors_blocks)
         self.getemail(bottom_bar)
         dataframe = self.createdf()
