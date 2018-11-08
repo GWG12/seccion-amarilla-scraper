@@ -43,13 +43,8 @@ class ScraperModel:
         url = self.root+r'/'+self.searchtermprocessor()+r'/'+str(1)
         response = requests.get(url)
         html = response.text
-        print(html)
-        print("FIIIIIIIIIIIIIIIIIIN")
         soup = BeautifulSoup(html, 'html.parser')
-        print(soup)
         pre = soup.find('div', {'class': 'list-title'})
-        print("MIRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-        print(pre)
         pre_nuevo = pre.find('span').text
         numbers = [int(s) for s in pre_nuevo.split() if s.isdigit()]
         number_results = numbers[0]
