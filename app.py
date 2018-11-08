@@ -24,6 +24,6 @@ def after_request(response):
 
 api.add_resource(Scraper,'/<string:data>')
 
-if __name__ == '__main__':    
+if __name__ == '__main__':
 
-    app.run(port=5000)
+    app.run()
